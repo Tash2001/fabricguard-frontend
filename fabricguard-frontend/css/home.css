@@ -1,0 +1,304 @@
+:root {
+  --silver-gray: #C0C0C0;
+  --steel-gray: #A8A9AD;
+  --charcoal: #4B4B4D;
+  --soft-white: #F8F8F8;
+  --teal-accent: #4CA1A3;
+}
+
+/* HERO SECTION */
+/* .hero { */
+  /* background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../assets/images/hero.png'); Update with your image path */
+  /* background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--soft-white);
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+} */
+
+.hero-section h1 {
+  font-size: 3rem;
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+      text-align: center;
+      padding: 4rem 1rem;
+  }
+
+  .hero-section .row {
+      justify-content: center !important;
+  }
+
+  .hero-section .col-lg-6 {
+      text-align: center !important;
+  }
+}
+
+
+/* BUTTONS */
+#get-started-btn, #download-app-btn {
+  background-color: transparent;
+  color: var(--soft-white);
+  border: 1px solid var(--soft-white);
+  border-radius: 0.5rem;
+  transition: 0.3s;
+}
+#get-started-btn:hover, #download-app-btn:hover {
+  background-color: var(--soft-white);
+  color: var(--teal-accent);
+}
+/* KEY FEATURES */
+.key-features {
+  border-radius: 50%;
+  background-color: var(--silver-gray);
+  height: 250px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.key-features:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* FEATURE CARDS */
+#defect, #texture, #quality {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 8.75rem 8.75rem;
+  transition: transform 0.5s, background-color 0.3s;
+  color: var(--charcoal);
+  font-size: 2.5rem;
+}
+
+/* Icon Colors */
+#defect i {
+  color: #4CA1A3; /* Custom teal accent for Defect Detection */
+}
+
+#texture i {
+  color: #6C757D; /* Custom gray for Texture Consistency */
+}
+
+#quality i {
+  color: #FFC107; /* Custom yellow for Quality Assessment */
+}
+
+/* Hover Effect */
+#defect:hover, #texture:hover, #quality:hover {
+  transform: scale(1.1);
+  background-color: var(--soft-white);
+  border-radius: 50%;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .key-features {
+    height: 200px;
+    width: 200px;
+  }
+  #defect, #texture, #quality {
+    font-size: 2rem;
+  }
+}
+
+
+/* TESTIMONIALS */
+.carousel .carousel-item {
+  color: var(--steel-gray);
+  overflow: hidden;
+  min-height: 120px;
+  font-size: 13px;
+}
+.carousel .media img {
+  width: 80px;
+  height: 80px;
+  display: block;
+  border-radius: 50%;
+}
+.carousel .testimonial {
+  padding: 0 15px 0 60px;
+  position: relative;
+}
+.carousel .testimonial::before {
+  content: "\201C";
+  font-family: Arial, sans-serif;
+  color: #e2e2e2;
+  font-weight: bold;
+  font-size: 68px;
+  line-height: 54px;
+  position: absolute;
+  left: 15px;
+  top: 0;
+}
+.carousel .overview b {
+  text-transform: uppercase;
+  color: var(--teal-accent);
+}
+.carousel .carousel-indicators {
+  bottom: -40px;
+}
+.carousel-indicators li, .carousel-indicators li.active {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 1px 3px;
+  box-sizing: border-box;
+}
+.carousel-indicators li {
+  background: #e2e2e2;
+  border: 4px solid var(--soft-white);
+}
+.carousel-indicators li.active {
+  background: var(--teal-accent);
+  border: 5px double;
+}
+
+/* CTA SECTION */
+.cta p {
+  font-size: 2rem;
+}
+.cta-image {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../assets/images/cta.png'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: var(--soft-white);
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+}
+
+/* CONTACT SECTION */
+.contact .contact-about h3 {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--charcoal);
+}
+.contact .contact-about p {
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Raleway", sans-serif;
+  color: var(--steel-gray);
+}
+.contact .social-links {
+  padding-bottom: 20px;
+}
+.contact .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: var(--soft-white);
+  color: var(--teal-accent);
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  border: 1px solid var(--teal-accent);
+  text-decoration: none;
+}
+.contact .social-links a:hover {
+  background: var(--teal-accent);
+  color: var(--soft-white);
+}
+.contact .info {
+  color: var(--charcoal);
+}
+.contact .info i {
+  font-size: 32px;
+  color: var(--teal-accent);
+  float: left;
+  line-height: 1;
+}
+.contact .info p {
+  padding: 0 0 10px 42px;
+  line-height: 28px;
+  font-size: 14px;
+}
+.contact .php-email-form .error-message {
+  display: none;
+  color: var(--soft-white);
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .sent-message {
+  display: none;
+  color: var(--soft-white);
+  background: var(--teal-accent);
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+.contact .php-email-form .loading {
+  display: none;
+  background: var(--soft-white);
+  text-align: center;
+  padding: 15px;
+}
+.contact .php-email-form .form-group {
+  margin-bottom: 20px;
+}
+.contact .php-email-form input, .contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  padding: 10px 15px;
+}
+.contact .php-email-form input:focus, .contact .php-email-form textarea:focus {
+  border-color: var(--teal-accent);
+}
+.contact .php-email-form button[type=submit] {
+  background: var(--teal-accent);
+  border: 0;
+  padding: 10px 24px;
+  color: var(--soft-white);
+  transition: 0.4s;
+  border-radius: 50px;
+}
+.contact .php-email-form button[type=submit]:hover {
+  background: var(--charcoal);
+}
+
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 2rem;
+  }
+  .app-name {
+    font-size: 3rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .hero {
+    text-align: center;
+  }
+}

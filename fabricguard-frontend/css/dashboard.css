@@ -1,0 +1,50 @@
+
+.dashboard-hero-section {
+    background-color: #006A71;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.dashboard-hero-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.dashboard-hero-section p {
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+
+.dashboard-section {
+    padding: 2rem 0;
+    background-color: #f5f5f5;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container {
+    position: relative;
+    height: 30vh;
+    width: 100%;
+}
+
+.metric-card i {
+    font-size: 2rem;
+}
+
+.control-buttons {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-group-vertical .btn {
+    margin-bottom: 10px;
+}

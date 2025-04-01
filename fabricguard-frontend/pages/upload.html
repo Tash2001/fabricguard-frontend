@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FabricGuard Detection App - Upload</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="../assets/aos/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="manifest" href="./manifest.json">
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
+    <!-- SweetAlert2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        /* Updated Styles */
+        .upload-hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../assets/images/hero-detect.png');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 5rem 0;
+        }
+
+        .upload-area {
+            border: 2px dashed var(--teal-accent);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-area:hover {
+            background-color: #e0f7fa;
+        }
+
+        .chooseFileButton {
+            background-color: var(--charcoal);
+            color: white;
+            border: 0;
+        }
+
+        .chooseFileButton:hover {
+            background-color: var(--teal-accent);
+        }
+
+        .large-icon {
+            font-size: 8rem;
+        }
+
+        .cta p {
+            font-size: 2rem;
+        }
+
+        .cta-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)), url('../assets/images/cta.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: #fff;
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+        }
+
+        #download-app-btn {
+            background-color: transparent;
+            color: white;
+            border: 1px white solid;
+            border-radius: 0.5rem;
+            transition: 0.3s;
+        }
+
+        #download-app-btn:hover {
+            background-color: white;
+            color: var(--charcoal);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg py-4 py-lg-0 shadow" style="background-color: #F2EFE7;">
+        <div class="container px-4">
+            <a href="javascript:void(0)" onclick="fetchHomePage()"><img src="../assets/images/icons/icon.png" alt="name_logo" width="50px" height="50px"></a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#top-navbar">
+                <i class="bi bi-list"></i>
+            </button>
+            <div class="offcanvas offcanvas-end" id="top-navbar">
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#top-navbar" aria-controls="top-navbar">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+                <ul class="navbar-nav ms-lg-auto p-4 p-lg-0">
+                    <li class="nav-item px-3 px-lg-0 py-1 py-lg-4"><a class="nav-link" href="javascript:void(0)"
+                            onclick="fetchHomePage() ; closeOffcanvas()">Home</a></li>
+                    <li class="nav-item px-3 px-lg-0 py-1 py-lg-4"><a class="nav-link" href="javascript:void(0)"
+                            onclick="fetchScanPage(); closeOffcanvas()">Scan</a></li>
+                    <li class="nav-item px-3 px-lg-0 py-1 py-lg-4"><a class="nav-link" href="javascript:void(0)"
+                            onclick="fetchDashboardPage(); closeOffcanvas()">Dashboard</a></li>
+                    <li class="nav-item px-3 px-lg-0 py-1 py-lg-4"><a class="nav-link text-center" href="#"
+                            id="signin">Sign In</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Hero Section -->
+<section class="upload-hero py-5 d-flex align-items-center" data-aos="fade-up" data-aos-duration="800">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8" style="color: #9ACBD0;">
+                <h1 class="display-4 fw-bold" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    Upload Your Fabric Image</h1>
+                <p class="lead mt-3" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">
+                    Select the type of analysis you want to perform and upload a clear image of the fabric for an instant assessment.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Detection Options -->
+<section class="detection-options py-5" data-aos="fade-up" data-aos-duration="1000" style="background-color: #F2EFE7;">
+    <div class="container">
+        <div class="text-center mb-4" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="200">
+            <h3>What do you want to analyze?</h3>
+            <div class="btn-group mt-3" role="group">
+                <button class="btn btn-outline-primary" onclick="selectAnalysis('defect')" data-aos="fade-right"
+                    data-aos-duration="800" data-aos-delay="400">Defect Detection</button>
+                <button class="btn btn-outline-success" onclick="selectAnalysis('texture')" data-aos="fade-left"
+                    data-aos-duration="800" data-aos-delay="600">Texture Analysis</button>
+            </div>
+        </div>
+
+        <!-- Upload Area -->
+        <div class="upload-area mt-5 py-5 px-4 border rounded shadow-lg" id="upload-area" data-aos="fade-up"
+            data-aos-duration="1000" data-aos-delay="300" style="pointer-events: none; opacity: 0.5;">
+            <h4 id="upload-heading" class="fw-bold mb-3">Select Analysis Type First</h4>
+            <p class="mb-3">Drag and drop an image here or click the button to upload.</p>
+            <div class="d-flex flex-column align-items-center">
+                <input type="file" id="imageUpload" class="form-control d-none" accept="image/*"
+                    onchange="handleImage(this)">
+                <button class="btn btn-lg btn-outline-primary chooseFileButton"
+                    onclick="document.getElementById('imageUpload').click()" disabled>
+                    <i class="bi bi-upload"></i> Choose File
+                </button>
+            </div>
+
+            <!-- Image Preview -->
+            <div id="image-preview" class="mt-4"></div>
+
+            <!-- Scan Button -->
+            <div class="text-center mt-4">
+                <button id="scanButton" class="btn btn-lg btn-success shadow-lg" style="display: none;"
+                    onclick="scanImage()">
+                    <i class="bi bi-search"></i> Scan Image
+                </button>
+            </div>
+        </div>
+
+        <!-- Result Display Section -->
+        <div id="result-card" class="mt-4 p-5 border rounded shadow-lg bg-light"
+            style="display: none; max-width: 700px; margin: auto;">
+            <h4 class="fw-bold text-center">Scan Results</h4>
+            <div id="result-content" class="mt-4 row align-items-center">
+                <div class="col-12 text-center">
+                    <p class="fw-semibold">Analyzing...</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <button class="btn btn-outline-secondary btn-lg" onclick="clearResults()">Try Another Image</button>
+                <a href="javascript:void(0)" id="learnMoreBtn" class="btn btn-primary btn-lg ms-3"
+                    style="display: none;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- CTA Section -->
+    <section class="cta d-flex justify-content-center align-items-center text-center cta-image" id="cta">
+        <div class="container">
+            <h3>Download the FabricGuard App for On-the-Go Access</h3>
+            <p>Get quality assessments and insights directly on your mobile device. Available for iOS and Android.</p>
+            <a href="#" class="btn btn-primary btn-lg" id="download-app-btn">Download FabricGuard</a>
+        </div>
+    </section>
+
+    <footer class="footer text-light py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 FabricGuard. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/aos/aos.js"></script>
+    <script src="../js/functions.js"></script>
+    <script src="../js/request.js"></script>
+</body>
+
+</html>
