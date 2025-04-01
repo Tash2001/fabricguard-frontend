@@ -1,0 +1,21 @@
+{
+    "name": "FabricGuard",
+    "short_name": "FabricGuard",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4ca1a3",
+    "icons": [
+      {
+        "src": "/assets/images/icons/icon_192x192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/assets/images/icons/icon_512x512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
+  
